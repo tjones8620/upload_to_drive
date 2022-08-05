@@ -3,7 +3,7 @@
 This script was written to upload local files to a specific folder location in Google Drive. There are a number of prequisites for running this script, with the steps as follows:
 
 
-1. Create a python virtual environment and install the packages in the `requirements.txt` file in this repository. 
+1. Create a python virtual environment and install the packages in the `requirements.txt` file in this repository. You can use `pip install -r requirements.txt` to easily install all project requirements once the virtual environment is activated using `source ~/Environments/<virtual_env>/bin/activate`. 
 
 2. Create a project in console.cloud.google.com:
 - Go to APIs & Services > Enabled APIs and Services and enable the Drive API for this project.
