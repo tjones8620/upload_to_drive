@@ -3,9 +3,9 @@
 This script was written to upload local files to a specific folder location in Google Drive. There are a number of prequisites for running this script, with the steps as follows:
 
 
-1. Create a python virtual environment and install the packages in the `requirements.txt` file in this repository. You can use `pip install -r requirements.txt` to easily install all project requirements once the virtual environment is activated using `source ~/Environments/<virtual_env>/bin/activate`. 
+1. Create a python virtual environment and install the packages in the `requirements.txt` file in this repository. You can use `pip install -r requirements.txt` to easily install all package requirements once the virtual environment is activated using `source ~/Environments/<virtual_env>/bin/activate`. 
 
-2. Create a project in console.cloud.google.com:
+2. Create a project in console.cloud.google.com :
 - Go to APIs & Services > Enabled APIs and Services and enable the Drive API for this project.
 - Go to OAuth Consent Screen within APIs & Services. Select External User Type. Fill in the required fields such as App Name, User Support Email, Developer Contact Information. Don't need to define any scopes as these are defined within the python script itself. Add your Google account as a test user and then return to dashboard.
 - Go to credentials and create OAuth client credentials. Select Destop App as the Application Type.  When prompted download the json file containing the credentials to a file called `credentials.json` and save this in the same location as the main python script. 
