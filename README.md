@@ -6,9 +6,9 @@ The script was written to upload local files to a specific folder location withi
 1. Create a python virtual environment and install the packages in the `requirements_driveapi.txt` file in this repository. You can use `pip install -r requirements_driveapi.txt` to easily install all package requirements once the virtual environment is activated using `source ~/Environments/<virtual_env>/bin/activate`. 
 
 2. Create a project in https://console.cloud.google.com :
-  - Go to APIs & Services > Enabled APIs and Services and enable the Drive API for this project.
-  - Go to OAuth Consent Screen within APIs & Services. Select External User Type. Fill in the required fields such as App Name, User Support Email, Developer Contact Information. Don't need to define any scopes as these are defined within the python script itself. Add your Google account as a test user and then return to dashboard.
-  - Go to credentials and create OAuth client credentials. Select Destop App as the Application Type.  When prompted download the json file containing the credentials to a file called `credentials.json` and save this in the same location as the main python script. 
+- Go to APIs & Services > Enabled APIs and Services and enable the Drive API for this project.
+- Go to OAuth Consent Screen within APIs & Services. Select External User Type. Fill in the required fields such as App Name, User Support Email, Developer Contact Information. Don't need to define any scopes as these are defined within the python script itself. Add your Google account as a test user and then return to dashboard.
+- Go to credentials and create OAuth client credentials. Select Destop App as the Application Type.  When prompted download the json file containing the credentials to a file called `credentials.json` and save this in the same location as the main python script. 
 
 3. The main function in the python script takes three string arguments: `folder_id`, `file_directory`, `file_ext`. 
 - The folder ID can be found by navigating to the desired Drive Folder for uploading to. The folder ID is the string at the end of the URL. (I found it was easier to use this string rather than a method using folder names as the files would upload to any nested folders with this folder name). 
