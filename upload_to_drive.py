@@ -1,5 +1,6 @@
 import os
 import os.path
+from fnmatch import fnmatch
 
 from google.auth.transport.requests import Request 
 from google.oauth2.credentials import Credentials
@@ -11,13 +12,14 @@ from googleapiclient.http import MediaFileUpload
 # Want to specify scope - what the script will do 
 SCOPES = ["https://www.googleapis.com/auth/drive"]
 
+abs_path = os.path.abspath(os.path.dirname(__file__))
 
 def get_creds():
     creds = None
     # Checks if a token exists:
     # Loads creds if token already exists
-    if os.path.exists("token.json"):
-        creds = Credentials.from_authorized_user_file("token.json", SCOPES)
+    if os.path.exists(os.path.join(abs_path,"token.json")):
+        creds = Credentials.from_authorized_user_file(os.path.join(abs_path,"token.json"), SCOPES)
 
     # If no creds or creds not valid 
     if not creds or not creds.valid: 
@@ -25,10 +27,10 @@ def get_creds():
             creds.refresh(Request())
         else: 
             flow = InstalledAppFlow.from_client_secrets_file(
-                "credentials.json", SCOPES)
+                os.path.join(abs_path,"credentials.json"), SCOPES)
             creds = flow.run_local_server(port=0)
 
-        with open('token.json', 'w') as token:
+        with open(os.path.join(abs_path,'token.json'), 'w') as token:
             token.write(creds.to_json())
 
     return creds
@@ -45,7 +47,7 @@ def main(folder_id, file_directory, file_ext):
         # Looks for all files in chosen directory
         # that end with the desired extension.
         for file in os.listdir(f"{file_directory}"):
-            if file.endswith(f"{file_ext}"):
+            if fnmatch(file, f"{file_ext}"):
                 # Create the request metatdata, letting 
                 # Drive API know what it's receiving.
                 file_metadata = {
