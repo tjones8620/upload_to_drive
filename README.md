@@ -17,6 +17,6 @@ The script was written to upload local files to a specific folder location withi
 
 4. Add own folder id, file directory, file extension etc into the main function where it is called at the bottom of the code.
 
-5. Run the script in the terminal (make sure you are in the files directory. If you want to run the file from your home directory you will have to edit the python file to contain the full path to the .json files). 
+5. Run the script in the terminal. The os package was used to make the filepaths so the script should run without having to be inside the same directory as the script (however the .json files do need to be in the same directory as the main script.)
 
 6. When running for the first time the `token.json` file will not exist so it will allow you to sign in and authenticate. The terminal output contains a link and you will see the OAuth Consent Screen that was configured in the project. Sign in with the Google account you are using (must be defined as a test user) and copy the code that is given. Paste this back into the prompt in the terminal window and the authentication should be complete. Next time you run the script in the terminal it will not ask you to authenticate. 
