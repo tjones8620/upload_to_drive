@@ -46,6 +46,10 @@ def main(folder_id, file_directory, file_ext):
 
         # Looks for all files in chosen directory
         # that end with the desired extension.
+        # Format of extension for fnmatch should be:
+            # "*.txt"
+            # "*abcd.csv"
+            # "*abcd*.csv"
         for file in os.listdir(f"{file_directory}"):
             if fnmatch(file, f"{file_ext}"):
                 # Create the request metatdata, letting 
